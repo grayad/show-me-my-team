@@ -11,7 +11,6 @@ test("gets employee's name value", () => {
 
     expect(employee.name).toBe('Jane');
     expect(employee.name).toEqual(expect.any(String));
-    expect(employee.getName()).toHaveProperty('name')
 });
 
 test("gets employee's id value", () => {
@@ -19,18 +18,16 @@ test("gets employee's id value", () => {
 
     expect(employee.id).toEqual(expect.any(Number));
     expect(employee.id).toBeGreaterThanOrEqual(1);
-    expect(employee.getId()).toHaveProperty('id');
 });
 
 test("gets employee's email value", () => {
     const employee = new Employee('Jane');
 
     expect(employee.email).toEqual(expect.stringContaining('@'));
-    expect(employee.getEmail()).toHaveProperty('email');
 });
 
 test("gets employee's role value", () => {
     const employee = new Employee('Jane');
 
-    expect(employee.getRole()).toHaveProperty('role','employee');
+    expect(employee.getRole()).toEqual(expect.stringContaining("Employee"));
 });

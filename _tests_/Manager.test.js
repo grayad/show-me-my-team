@@ -1,14 +1,14 @@
 const Manager = require('../lib/Manager.js');
 
-test("gets manager's office number", () => {
+test("gets manager's officeNumber", () => {
     const manager = new Manager('Jane');
 
-    expect(manager.office).toEqual(expect.any(Number));
-    expect(manager.office).toBeGreaterThanOrEqual(1);
+    expect(manager.officeNumber).toEqual(expect.any(Number));
+    expect(manager.officeNumber).toBeGreaterThanOrEqual(1);
 });
 
 test("override employee role to 'manager'", () => {
     const manager = new Manager('Jane');
 
-    expect(manager.getRole()).toHaveProperty('role','manager');
+    expect(manager.getRole()).toEqual(expect.stringContaining("Manager"));
 });

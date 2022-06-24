@@ -10,6 +10,6 @@ test("gets engineer's github username", () => {
 test("override employee role to 'engineer'", () => {
     const engineer = new Engineer('Jane');
 
-    expect(engineer.getRole()).toHaveProperty('role','engineer');
+    expect(engineer.getRole()).toEqual(expect.stringContaining("Engineer"));
 });
 

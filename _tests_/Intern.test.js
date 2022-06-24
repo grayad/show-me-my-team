@@ -10,5 +10,5 @@ test("gets intern's school", () => {
 test("override employee role to 'intern'", () => {
     const intern = new Intern('Jane');
 
-    expect(intern.getRole()).toHaveProperty('role','intern');
+    expect(intern.getRole()).toEqual(expect.stringContaining("Intern"));
 });
