@@ -63,7 +63,7 @@ const mgrQArr = [
                 return false;
             }
         }
-    }
+    },
 ];
 
 // questions for engineer
@@ -177,6 +177,64 @@ const intQArr = [
         }
     }
 ]
+
+const typeQArr = [
+    {
+        type: 'list',
+        name: 'type',
+        message: 'What type of team member would you like to add?',
+        choices: ['Engineer', 'Intern', 'I do not want to add anymore team members']
+    }
+]
+
+const promptEng = () => {
+    inquirer.prompt(engQArr)
+        .then(answers => {
+            const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+            teamArr.push(engineer);
+
+            promptType();
+        })
+};
+
+const promptInt = () => {
+    inquirer.prompt(intQArr)
+        .then(answers => {
+            const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+            teamArr.push(intern);
+
+            promptType();
+        })
+
+};
+
+const promptType = () => {
+    inquirer.prompt(typeQArr)
+        .then(answer => {
+            if(answer.type === 'Engineer') {
+                promptEng();
+            } else if(answer.type === 'Intern') {
+                promptInt();
+            } else {
+                return;
+            }
+        })
+}
+const promptUser = () => {
+    inquirer
+        .prompt(mgrQArr)
+            .then(answers => {
+                const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+                teamArr.push(manager);
+
+                promptType();
+            })
+};
+
+promptUser();
+
+
+
 
 function showTeam() {
 
