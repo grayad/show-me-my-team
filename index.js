@@ -216,6 +216,7 @@ const promptType = () => {
             } else if(answer.type === 'Intern') {
                 promptInt();
             } else {
+                console.log('Your team profile has been created! Check out team.html!')
                 return;
             }
         })
@@ -232,7 +233,6 @@ const promptUser = () => {
 };
 
 promptUser();
-
 
 
 
