@@ -3,7 +3,10 @@ const inquirer = require('inquirer');
 const Employee = require('./lib/Employee');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const Manager = require('./lib/Manager')
+const Manager = require('./lib/Manager');
+const generatePage = require('./src/page-template');
+const fs = require("fs");
+
 
 // array where user inputs of employee data will be pushed
 const teamArr = [];
@@ -216,8 +219,7 @@ const promptType = () => {
             } else if(answer.type === 'Intern') {
                 promptInt();
             } else {
-                console.log('Your team profile has been created! Check out team.html!')
-                return;
+                writeFile(generatePage(teamArr));
             }
         })
 }
@@ -232,12 +234,14 @@ const promptUser = () => {
             })
 };
 
+const writeFile = html => {
+    fs.writeFile('./output/index.html', html, (err) => {
+        if (err) throw new Error(err);
+
+        console.log('Your team profile has been created! Check out team.html in the output folder!');
+    });
+};
+
 promptUser();
 
 
-
-function showTeam() {
-
-};
-
-module.exports = showTeam;
