@@ -9,7 +9,7 @@ const generateMgr = manager => {
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${manager.id} </li>
                 <li class="list-group-item">Email: ${manager.email}</li>
-                <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
+                <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
             </ul>
         </div>
     `
@@ -54,7 +54,10 @@ const generatePage = teamArray => {
 
     const manager = teamArray.filter(employee => {
         return employee.getRole() === "Manager"
-    });
+    }).map(m => {
+        return generateMgr(m)
+    }).join('');
+
     const engineers = teamArray.filter(employee => {
         return employee.getRole() === "Engineer"
     });
@@ -82,7 +85,7 @@ const generatePage = teamArray => {
             </header>
 
             <main class="container p-5 mx-5 row justify-content-center gap-2">
-                ${generateMgr(manager)}
+                ${manager}
             </main>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
