@@ -35,3 +35,4 @@ A node application that prompts the user for information about their team, then 
 - Bootstrap
 
 ## Walk-through 
+https://drive.google.com/file/d/1k7I3nP04HSohWQBw38xBuVUsV1e1MEFf/view
