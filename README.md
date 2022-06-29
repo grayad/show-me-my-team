@@ -1,7 +1,7 @@
 # show-me-my-team
 
 ## Description
-A node application that takes prompts the user for information about their team, then creates an html site from the user's inputs. 
+A node application that prompts the user for information about their team, then creates an html site from the user's inputs. 
 
 ## User Story
 - AS A manager
