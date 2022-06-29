@@ -56,10 +56,10 @@ const mgrQArr = [
     },
     {
         type: 'input',
-        name: 'office',
+        name: 'officeNumber',
         message: "What is the team manager's office number?",
-        validate: office => {
-            if (office) {
+        validate: officeNumber => {
+            if (officeNumber) {
                 return true;
             } else {
                 console.log("Please enter the team manager's office number.");
@@ -229,7 +229,6 @@ const promptUser = () => {
             .then(answers => {
                 const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
                 teamArr.push(manager);
-                console.log(manager.getOfficeNumber());
 
                 promptType();
             })

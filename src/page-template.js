@@ -50,8 +50,6 @@ const generateInt = intern => {
 };
 
 const generatePage = teamArray => {
-    // var html = [];
-
     const manager = teamArray.filter(employee => {
         return employee.getRole() === "Manager"
     }).map(m => {
