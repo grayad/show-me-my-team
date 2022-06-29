@@ -229,6 +229,7 @@ const promptUser = () => {
             .then(answers => {
                 const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
                 teamArr.push(manager);
+                console.log(manager.getOfficeNumber());
 
                 promptType();
             })

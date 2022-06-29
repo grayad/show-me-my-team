@@ -9,7 +9,7 @@ const generateMgr = manager => {
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${manager.id} </li>
                 <li class="list-group-item">Email: ${manager.email}</li>
-                <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
+                <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
             </ul>
         </div>
     `
@@ -25,7 +25,7 @@ const generateEng = engineer => {
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${engineer.id} </li>
-                <li class="list-group-item">Email:${engineer.email}</li>
+                <li class="list-group-item">Email: ${engineer.email}</li>
                 <li class="list-group-item">Github: github.com/${engineer.github}</li>
             </ul>
         </div>
@@ -60,10 +60,15 @@ const generatePage = teamArray => {
 
     const engineers = teamArray.filter(employee => {
         return employee.getRole() === "Engineer"
-    });
+    }).map(e => {
+        return generateEng(e)
+    }).join('');
+
     const interns = teamArray.filter(employee => {
         return employee.getRole() === "Intern"
-    });
+    }).map(i => {
+        return generateInt(i)
+    }).join('');
 
     return `
         <!DOCTYPE html>
@@ -86,6 +91,8 @@ const generatePage = teamArray => {
 
             <main class="container p-5 mx-5 row justify-content-center gap-2">
                 ${manager}
+                ${engineers}
+                ${interns}
             </main>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
