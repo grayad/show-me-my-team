@@ -34,5 +34,6 @@ A node application that prompts the user for information about their team, then 
 - Inquirer
 - Bootstrap
 
-## Walk-through 
+## Walk-through [
 https://drive.google.com/file/d/1k7I3nP04HSohWQBw38xBuVUsV1e1MEFf/view
+](https://drive.google.com/file/d/1X4ka0jY_i7tdO1YRUD1pmMfytCM46TW4/view)
